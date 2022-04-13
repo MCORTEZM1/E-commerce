@@ -115,6 +115,10 @@ router.put('/:id', (req, res) => {
       }
     })
     .then((product) => {
+      if (product == 0) {
+        res.status(404).json({ message: 'No changes were made'});
+        return;
+      }
       // find all associated tags from ProductTag
       return ProductTag.findAll({ where: { product_id: req.params.id } });
     })
