@@ -111,7 +111,7 @@ router.delete('/:id', (req, res) => {
     res.json(categoryData)
   })
   .catch(err => {
-    console.log(err);
+    console.log('This is the err:===== ',err);
     res.status(500).json(err);
   }) 
 });
